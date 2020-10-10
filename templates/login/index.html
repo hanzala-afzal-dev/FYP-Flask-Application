@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Signin</title>
+
+        <!-- Vendors -->
+
+        <!-- Animate CSS -->
+        <link href="../../static/login/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link href="../../static/login/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+        <!-- Site CSS -->
+        <link href="../../static/login/css/app-1.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="login">
+
+            <form action="{{ url_for('panel_.login_auth') }}" method="POST" role="form">
+            <!-- Login -->
+            <div class="login__block toggled" id="l-login">
+                <div class="login__block__header">
+               
+                    <i class="zmdi zmdi-account-circle"></i>
+                    Hi there! Please Sign in
+
+                    <div class="actions login__block__actions">
+                        <div class="dropdown">
+                            <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="signup">Create an account</a></li>
+                                <li><a data-block="#l-forget-password" href="">Forgot password?</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login__block__body">
+                    <div class="form-group form-group--float form-group--centered form-group--centered">
+                        <input type="email" class="form-control" name="email" required>
+                        <label>Email Address</label>
+                        <i class="form-group__bar"></i>
+                    </div>
+
+                    <div class="form-group form-group--float form-group--centered form-group--centered">
+                        <input type="password" class="form-control" name="password" required>
+                        <label>Password</label>
+                        <i class="form-group__bar"></i>
+                    </div>
+
+                    <button class="btn btn--light btn--icon m-t-15" type="submit"><i class="zmdi zmdi-long-arrow-right"></i></button>
+                </div>
+                {% if request.args.get('res')=="eRR" %}
+                <div class="alert alert-danger">Wrong Credentials</div>
+                {% elif request.args.get('res')=="signedup" %}
+                <div class="alert alert-success">Account Created. Signin</div>
+                {% elif request.args.get('res')=='Login' %}
+                <div class="alert alert-warning">You Must Signin</div>
+                {% endif %}
+            </div>
+            </form>
+            <br>
+
+            </div>
+        <!-- jQuery -->
+        <script src="../../static/login/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="../../static/login/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+        <!-- Site Functions & Actions -->
+        <script src="../../static/login/js/app.min.js"></script>
+    </body>
+</html>

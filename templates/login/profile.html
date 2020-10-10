@@ -1,0 +1,112 @@
+
+{% extends "login/template.html" %}
+
+
+{% block content %}
+
+
+<section id="content">
+
+    <div class="card">
+        <div class="card__header">
+            <h2>Update Your Profile </h2>
+        </div>
+
+        <form class="card__body form-horizontal" action="{{ url_for('panel_.update_profile') }}" method="POST">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-xs-3">
+                    <input type="email" class="form-control" value='{{ email }}' name="emaiL" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" value='{{ name }}' name="namE" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" id="btn-update" class="btn btn-default">Update</button>
+                </div>
+            </div>
+            <div class="form-group">
+                {% if request.args.get('res')=="eRR-S" %} 
+                <div class="col-sm-offset-2 col-sm-10">
+                <div class="form-group has-info">
+                    <span class="help-block" id="errLabel">Nothing to Update</span>
+                </div>
+                </div>
+                {% elif request.args.get('res')=='eRR-X' %}
+                <div class="col-sm-offset-2 col-sm-10">
+                <div class="form-group has-error">
+                    <span class="help-block">Email already exists</span>
+                </div>
+                </div>
+                {% elif request.args.get('res')=='-C' %}
+                <div class="col-sm-offset-2 col-sm-10">
+                <div class="form-group has-success">
+                    <span class="help-block">Updated Successfuly</span>
+                </div>
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h2>Update Your Password </h2>
+        </div>
+
+        <form class="card__body form-horizontal" action="{{ url_for('panel_.update_pass') }}" method="POST">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Old Password</label>
+                <div class="col-xs-3">
+                    <input type="password" id="o_psw" name="o_psw" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">New Password</label>
+                <div class="col-xs-3">
+                    <input type="password" id="n_psw" name="n_psw" onchange="PassCheck()" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-xs-3">
+                    <input type="password" id="c_psw" class="form-control" onchange="PassCheck()" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" id="input-hidden" hidden>
+                    <button type="submit" id="btn-update-psw" class="btn btn-default">Update</button>
+                </div>
+            </div>
+            <div class="form-group">
+            {% if request.args.get('res')=="nt" %} 
+            <div class="col-sm-offset-2 col-sm-10">
+            <div class="form-group has-error">
+                <span class="help-block" id="errLabel">Incorrect Old Password</span>
+            </div>
+            </div>
+            {% elif request.args.get('res')=='up' %}
+            <div class="col-sm-offset-2 col-sm-10">
+            <div class="form-group has-success">
+                <span class="help-block">Password Update Successfuly</span>
+            </div>
+            </div>
+            {% else %}
+            <div class="col-sm-offset-2 col-sm-10">
+            <div class="form-group has-error">
+                <span class="help-block" id="errLabel"></span>
+            </div>
+            </div>
+
+            {% endif %}
+        </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

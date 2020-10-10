@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+	<title>Predict Links</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Gorge Portfolio Template">
+	<meta name="keywords" content="personal, portfolio">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="../static/game/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/game/cubeportfolio/css/cubeportfolio.min.css"/>
+    <link rel="stylesheet" href="../static/game/css/owl.theme.css"/> 
+    <link rel="stylesheet" href="../static/game/css/owl.carousel.css"/> 
+    <link rel="stylesheet" href="../static/game/css/colors/red.css" id="color"/>
+	<link rel="stylesheet" href="../static/game/css/style.css"/>
+    <link rel="stylesheet" href="../static/game/css/dark.css"/>
+    <link rel="stylesheet" href="../static/game/css/progress.css"/>
+
+    <!-- Google Web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="../static/game/icon-fonts/fontawesome-5.0.6/css/fontawesome-all.min.css"/>
+
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+   
+
+    <!-- HEADER -->
+    <header>
+        
+        <div class="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="full-menu">
+        <div class="full-inner row">
+            <nav class="col-md-8">
+                <ul>
+                    {% if session['user'] %}
+                    <li><a href="login/dashboard">Your Panel</a></li>
+                    <li><a href="login/logout">Logout</a></li>
+                    {% else %}
+                    <li><a href="login/index">Login</a></li>
+                    <li><a href="login/signup">Signup</a></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+            {% if session['user'] %}
+            <div class="col-md-4 full-contact">
+                <ul>
+                    <li class="title">Hi {{ session['name'] }}</li>
+                    <li>{{ session['user'] }}</li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+</div>
+
+
+    <!-- FULL MENU -->
+    
+    
+    <!-- SITE CONTENT -->
+    {% block content %}
+   
+    {% endblock %}
+
+
+    <!-- Javascripts -->
+    
+    <script src="../static/game/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/game/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="../static/game/js/typed.js"></script>
+    <script src="../static/game/js/particles.js"></script>
+    
+    <script src="../static/game/js/app.js"></script>
+    <script src="../static/game/js/jquery.hover3d.js"></script>
+    <script src="../static/game/js/owl.carousel.min.js"></script>
+    <script src="../static/game/js/main.js"></script>
+    <!-- for color alternatives -->
+    <script src="../static/game/js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../static/game/js/myjs.js"></script>
+    <script src="../static/game/js/progress.js"></script>
+    
+
+</body>
+</html>

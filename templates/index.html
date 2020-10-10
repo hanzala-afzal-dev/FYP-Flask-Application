@@ -1,0 +1,45 @@
+
+
+{% extends "template.html" %}
+
+
+{% block content %}
+
+<div id="particles-js" style="z-index: 0;"></div>
+<div class="cont">
+            
+    <section class="titlebar">
+        <h1 class="page-title" style="color: #b9b9b9;">Predict Link</h1>
+        <section class="contact col-md-8 offset-md-2 top_90">
+        <div class="contact-form top_90">
+            <form class="row" action="" style="align-items: center;" role="form">
+                <div class="col-md-6">
+                    <input class="inp" type="text" name="n1"  id="node1" placeholder="Node 1" maxlength="5" required pattern="[0-9]+">
+                    
+                </div>
+                <div class="col-md-6">
+                    <input class="inp" type="text" name="n2"  id="node2" placeholder="Node 2" maxlength="5" required pattern="[0-9]+">
+                </div>
+               
+                <div class="col-md-12 text-center">
+                    <input id="submit-hidden" type="submit" style="display: none" />
+                    <br><br>
+                   <button id="btn-submit" class="site-btn2" type="button">Predict</button>
+                    
+                </div>
+            </form>   
+            <br>
+            <img id="loader-gif" src="../static/game/images/load.gif" alt="Predicting" hidden>
+            <br><br>
+            <h1 class="subtitle" id="comeent"></h1>
+                                 
+        </div>
+        
+        </section>
+        
+    </section>
+</div>
+
+
+
+{% endblock %}

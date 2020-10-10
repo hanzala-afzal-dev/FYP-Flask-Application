@@ -1,0 +1,101 @@
+{% extends "login/template.html" %}
+
+
+{% block content %}
+
+
+            <section id="content">
+                <div id="content__grid" data-columns>
+                   
+                    <div class="card widget-analytic">
+                        <div class="card__header">
+                            <h2>Total Links Predicted <small></small></h2>
+                            <div class="actions">
+                              
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="widget-analytic__info">
+                                <i class="zmdi zmdi-dot-circle"></i>
+                                <h2>{{ total }}</h2>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card widget-analytic">
+                        <div class="card__header">
+                            <h2>Negative Links Predicted <small></small></h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="widget-analytic__info">
+                                <i class="zmdi zmdi-minus-circle-outline"></i>
+                                <h2>{{ neg }}</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card widget-analytic">
+                        <div class="card__header">
+                            <h2>Positive Links Predicted <small></small></h2>
+                            <div class="actions">
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="widget-analytic__info">
+                                <i class="zmdi zmdi-plus-circle-o"></i>
+                                <h2>{{ pos }}</h2>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
+                    <div class="card widget-analytic">
+                        <div class="card__header">
+                            <h2>Missing Links Predicted <small></small></h2>
+                            <div class="actions">
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="widget-analytic__info">
+                                <i class="zmdi zmdi-dot-circle-alt"></i>
+                                <h2>{{ no }}</h2>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="card widget-past-days">
+                        <div class="card__header">
+                            <h1>Score Board</h1>
+
+                        </div>
+                        <div class="list-group list-group--striped" style="margin-top: -20pt;">
+                            <div class="list-group-item">
+                                <div class="widget-past-days__info">
+                                    <small>Negative Links</small>
+                                    <h3>{{ neg_score }}</h3>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item">
+                                <div class="widget-past-days__info">
+                                    <small>Positive Links</small>
+                                    <h3>{{ pos_score }}</h3>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item">
+                                <div class="widget-past-days__info">
+                                    <small>Missing Links</small>
+                                    <h3>{{ missing_score }}</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock %}

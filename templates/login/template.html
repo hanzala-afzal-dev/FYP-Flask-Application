@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dashboard</title>
+
+        <!-- Vendors -->
+
+        <!-- Animate CSS -->
+        <link href="../../static/login/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link href="../../static/login/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+        <!-- Malihu Scrollbar -->
+        <link href="../../static/login/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+        <!-- Full Calendar -->
+        <link href="../../static/login/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+
+        <!-- Site CSS -->
+        <link href="../../static/login/css/app-1.min.css" rel="stylesheet">
+
+        <!-- Page loader -->
+        <script src="../../static/login/js/page-loader.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Page Loader -->
+        <div id="page-loader">
+            <div class="preloader preloader--xl preloader--light">
+                <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <a href="#" class="hidden-xs">
+                    Your Dashboard
+                    
+                </a>
+                <i class="logo__trigger zmdi zmdi-menu" data-mae-action="block-open" data-mae-target="#navigation"></i>
+            </div>
+
+            <ul class="top-menu">
+             
+
+            
+                
+                <li class="top-menu__profile dropdown">
+                    <a data-toggle="dropdown" href="#">
+                        <i class="zmdi zmdi-account-circle"></i>
+                    </a>
+
+                    <ul class="dropdown-menu pull-right dropdown-menu--icon">
+                        <li>
+                            <a href="{{ url_for('panel_.profile_view') }}"><i class="zmdi zmdi-account"></i>Profile</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('panel_.logout') }}"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+       
+        </header>
+
+        <section id="main">
+            
+            <aside id="navigation">
+                <div class="navigation__menu c-overflow">
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('panel_.dashboard_view') }}"><i class="zmdi zmdi-home"></i> Home</a>
+                        </li>
+                        
+                        <li><a href="/"><i class="zmdi zmdi-device-hub"></i> Predict</a></li>
+                        <li><a href="{{ url_for('panel_.history_view') }}"><i class="zmdi zmdi-widgets"></i> History</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            {% block content %}
+   
+            {% endblock %}
+
+            <footer id="footer">
+                Copyright &copy; 2020 
+
+            </footer>
+
+        </section>
+
+        <!-- Javascript Libraries -->
+
+        <!-- jQuery -->
+        <script src="../../static/login/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <script src="../../static/login/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../static/login/vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+
+        <script src="../../static/login/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        <script src="../../static/login/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../static/login/demo/js/easy-pie-charts.js"></script>
+        <script src="../../static/login/vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.js"></script>
+        <script src="../../static/login/demo/js/data-table.js"></script>
+
+        <script src="../../static/login/js/app.min.js"></script>
+        <script>
+            function PassCheck()
+            {
+                var ps1 = document.getElementById("n_psw").value;
+                var ps2 = document.getElementById("c_psw").value;
+                if(ps1 != ps2)
+                {
+                    const button = document.getElementById('btn-update-psw')
+                    button.disabled=true
+                    document.getElementById("errLabel").innerHTML="Password Doesnot match"
+                }
+                else
+                {
+                    const button = document.getElementById('btn-update-psw')
+                    button.disabled=false
+                    document.getElementById("errLabel").innerHTML=""
+                }
+
+            }
+
+
+        </script>
+    </body>
+</html>

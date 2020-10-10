@@ -1,0 +1,47 @@
+{% extends "login/template.html" %}
+
+
+{% block content %}
+
+
+<section id="content">
+    <div class="content__header">
+        <h2>Predicted Links</h2>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card__body">
+
+            <div class="table-responsive">
+                <table id="data-table-basic" class="table-striped table table-bootgrid" aria-busy="false">
+                    <thead>
+                        <tr>
+                            <th data-column-id="Node1" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Source Node</span><span class="table-bootgrid__icon zmdi "></span></a></th>
+                            <th data-column-id="Node2" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Target Node</span><span class="table-bootgrid__icon zmdi zmdi-sort-amount-desc"></span></a></th>
+                            <th data-column-id="Sign" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Sign</span><span class="table-bootgrid__icon zmdi zmdi-sort-amount-desc"></span></a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in hist %}
+                        <tr data-row-id="0">
+                            <td class="text-left">{{ i[2] }}</td>
+                            <td class="text-left">{{ i[3] }}</td>
+                            {% if i[4]=="pos" %}
+                            <td class="text-left">Positive</td>
+                            {% elif  i[4]=="neg" %}
+                            <td class="text-left">Negative</td>
+                            {% elif i[4]=="no" %}
+                            <td class="text-left">Missing</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
